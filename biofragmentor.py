@@ -7,12 +7,18 @@ import argparse
 import lib
 import lib.ms as ms
 
-PATH_CONFIG = [os.path.dirname(os.path.realpath(__file__)), "data"]
+def get_data_path():
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.realpath(__file__))
+
+PATH_CONFIG = [get_data_path(), "data"]
 
 APP_AUTHOR = "Basilius Sauter"
 APP_NAME = "BioFragmentor"
 APP_DESC = "BioFragmentor -- Biopolymer in silico fragmentation tool"
-APP_VERSION = 0.1
+APP_VERSION = "0.1"
 
 APP_URL = "https://github.com/Vassyli/biofragmentor"
 APP_LICENSE = "GNU General Public License Version 3"

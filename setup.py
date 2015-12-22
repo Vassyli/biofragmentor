@@ -1,45 +1,38 @@
-import sys
+import sys, os
 
-from .biofragmentor import PATH_CONFIG, \
-    APP_AUTHOR, APP_DESC, APP_LICENSE, \
-    APP_NAME, APP_URL, APP_VERSION
+from cx_Freeze import setup, Executable
 
-if sys.platform == 'win32':
-    from disutils.core import setup
-    import py2exe
+from biofragmentor import APP_AUTHOR, APP_DESC, \
+    APP_LICENSE, APP_NAME, APP_URL, APP_VERSION
 
-    # Additional files (data/*.xml), license, readme..
-    dataFiles = (
-        ("", [
-            "LICENSE",
-            "README.md"]),
-        ("data", [
-            "data/atoms.xml",
-            "data/monomers.xml"
-            "data/sequences.xml"]),
-    )
+# Additional files (data/*.xml), license, readme..
+includefiles = [
+    "LICENSE",
+    "README.md",
+    "data",
+    ]
+packages = []
+excludes = ["Tkinter"]
 
-    # py2exe options
-    py2exe_options = {
-        "bundle_files" : 1,
-        "compressed" : True,
-        "optimize" : 2,
-        "excludes" : ["Tkconstants", "Tkinter", "tcl"],
-    }
+# build_exe Options
+build_exe_options = {
+    "excludes" : excludes,
+    "packages" : packages,
+    "include_files" : includefiles}
 
-    setup(
-        name = APP_NAME,
-        version = APP_VERSION,
-        description = APP_DESC,
-        author = APP_AUTHOR,
-        url = APP_URL,
-        license = APP_LICENSE,
-        windows = ["biofragmentor.py"],
-        data_files = dataFiles,
-        options = {"py2exe" : py2exe_options},
-        zipfile = None
-    )
-elif sys.platform == 'darwin':
-    pass
-else:
-    pass
+base = None
+
+setup(
+    name = APP_NAME,
+    version = APP_VERSION,
+    description = APP_DESC,
+    author = APP_AUTHOR,
+    url = APP_URL,
+    license = APP_LICENSE,
+    windows = ["biofragmentor.py"],
+    options = {
+        "build_exe" : build_exe_options},
+    executables = [
+        Executable("biofragmentor.py", base=None)
+    ]
+)
