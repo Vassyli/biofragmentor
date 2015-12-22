@@ -1,11 +1,7 @@
-# main libraries
 import sys
 import os
-import argparse
 
-# import libraries
-import lib
-import lib.ms as ms
+import biofragmentor as BFrag
 
 def get_data_path():
     if getattr(sys, "frozen", False):
@@ -18,15 +14,15 @@ PATH_CONFIG = [get_data_path(), "data"]
 APP_AUTHOR = "Basilius Sauter"
 APP_NAME = "BioFragmentor"
 APP_DESC = "BioFragmentor -- Biopolymer in silico fragmentation tool"
-APP_VERSION = "0.1"
+APP_VERSION = "0.1.1"
 
 APP_URL = "https://github.com/Vassyli/biofragmentor"
 APP_LICENSE = "GNU General Public License Version 3"
 
-class bpfrag:
+class BioFragmentor:
 	data = None
 	def __init__(self):
-		self.data = lib.Data(os.path.join(*PATH_CONFIG))
+		self.data = BFrag.Data(os.path.join(*PATH_CONFIG))
 
 	def run(self, type, sequence, **kwargs):
 		seqlist = self.data.sequences[type].cleanup(sequence)
@@ -50,10 +46,10 @@ class bpfrag:
 		# Creating ions
 		for line in output:
 			if mode == "negative":
-				finalloss = -lib.Compound(name="", formula="H").getExactMass(self.data.elements)
+				finalloss = -BFrag.Compound(name="", formula="H").getExactMass(self.data.elements)
 				finaladd = "-H"
 			else:
-				finalloss = lib.Compound(name="", formula="H").getExactMass(self.data.elements)
+				finalloss = BFrag.Compound(name="", formula="H").getExactMass(self.data.elements)
 				finaladd = "+H"
 			for c in range(0, maxcharges):
 				charge = c+1
@@ -63,35 +59,3 @@ class bpfrag:
 		output = sorted(output2, key=lambda x : x[0])
 		for line in output:
 			print("%f\t%s\t%s" % (line[0], line[2], line[1]))
-
-if __name__ == "__main__":
-	# Initialize Main instance (load database)
-	main = bpfrag()
-
-	# Command line tools
-	parser = argparse.ArgumentParser(description = APP_DESC)
-
-	parser.add_argument("--gui", action="store_true", default = False)
-	parser.add_argument("--debug", action='store_true', default = False)
-
-	# Get all possible sequence types
-	choices = [x for x in main.data.sequences]
-	default = "dna" if "dna" in choices else choices[0]
-	parser.add_argument("--type", type=str, choices=choices, default="dna")
-
-	# Additional MS parameters
-	parser.add_argument("--mode", type=str, choices=["positive", "negative"], default="negative")
-	parser.add_argument("--maxcharges", type=int, default=2)
-
-	parser.add_argument("sequence", metavar = "SEQUENCE", type = str,
-		help = "The biopolymer sequence")
-
-	args = parser.parse_args()
-
-	# Run either GUI or CLI
-	if args.gui == False:
-		# CLI
-		main.run(args.type, args.sequence, mode=args.mode, maxcharges=args.maxcharges)
-	else:
-		# GUI
-		print("GUI not implemented yet. Sorry!")
