@@ -9,23 +9,29 @@ import lib.ms as ms
 
 PATH_CONFIG = [os.path.dirname(os.path.realpath(__file__)), "data"]
 
-APP_DESC = "BPFrag -- Biopolymer in silico fragmentation tool"
+APP_AUTHOR = "Basilius Sauter"
+APP_NAME = "BioFragmentor"
+APP_DESC = "BioFragmentor -- Biopolymer in silico fragmentation tool"
+APP_VERSION = 0.1
+
+APP_URL = "https://github.com/Vassyli/biofragmentor"
+APP_LICENSE = "GNU General Public License Version 3"
 
 class bpfrag:
 	data = None
 	def __init__(self):
 		self.data = lib.Data(os.path.join(*PATH_CONFIG))
-		
+
 	def run(self, type, sequence, **kwargs):
 		seqlist = self.data.sequences[type].cleanup(sequence)
 		fragments = self.data.sequences[type].fragment(seqlist)
-		
+
 		# Additional parameters
 		mode = kwargs["mode"]
 		maxcharges = kwargs["maxcharges"]
-		
+
 		output = []
-		
+
 		for fragment in fragments:
 			masses = self.data.sequences[type].calculateMasses(fragment, self.data.elements)
 			for mass in masses:
@@ -47,7 +53,7 @@ class bpfrag:
 				charge = c+1
 				m = ("M/%i" % (charge, )) if charge > 1 else "M"
 				output2.append([(line[0]+finalloss)/charge, line[1] + finaladd, m])
-		
+
 		output = sorted(output2, key=lambda x : x[0])
 		for line in output:
 			print("%f\t%s\t%s" % (line[0], line[2], line[1]))
@@ -55,27 +61,27 @@ class bpfrag:
 if __name__ == "__main__":
 	# Initialize Main instance (load database)
 	main = bpfrag()
-	
+
 	# Command line tools
 	parser = argparse.ArgumentParser(description = APP_DESC)
-	
+
 	parser.add_argument("--gui", action="store_true", default = False)
 	parser.add_argument("--debug", action='store_true', default = False)
-	
+
 	# Get all possible sequence types
 	choices = [x for x in main.data.sequences]
 	default = "dna" if "dna" in choices else choices[0]
 	parser.add_argument("--type", type=str, choices=choices, default="dna")
-	
+
 	# Additional MS parameters
 	parser.add_argument("--mode", type=str, choices=["positive", "negative"], default="negative")
 	parser.add_argument("--maxcharges", type=int, default=2)
-	
-	parser.add_argument("sequence", metavar = "SEQUENCE", type = str, 
+
+	parser.add_argument("sequence", metavar = "SEQUENCE", type = str,
 		help = "The biopolymer sequence")
-	
+
 	args = parser.parse_args()
-	
+
 	# Run either GUI or CLI
 	if args.gui == False:
 		# CLI
