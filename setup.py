@@ -11,7 +11,8 @@ includefiles = [
     "README.md",
     "data",
     ]
-packages = []
+packages = [
+    "lib.sequence.dnasequence"]
 excludes = ["Tkinter"]
 
 # build_exe Options
