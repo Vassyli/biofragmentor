@@ -1,0 +1,16 @@
+<sequences>
+	<sequence id="dna" name="DNA" 
+		ligationloss = "H2O"
+		losses="H2O"
+		sequencemodule="dnasequence"
+		/>
+	<sequence id="rna" name="RNA" 
+		ligationloss = "H2O"
+		losses="H2O"
+		sequencemodule="dnasequence"
+		/>
+	<sequence id="protein" name="Protein"
+		losses="H2O, NH3"
+		ligationloss = "H2O"
+	/>
+</sequences>

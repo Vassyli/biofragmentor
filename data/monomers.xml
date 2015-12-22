@@ -1,0 +1,110 @@
+<monomers>
+	<!-- Phosphate Groups for DNA and RNA -->
+	<monomer id="dna_p" name="p" sequence="dna, rna"
+		formula="H3O4P">
+	</monomer>
+	<monomer id="dna_p_implicit" name="." sequence="dna, rna"
+		formula="H3O4P" ><!--implicit="implicit"-->
+	</monomer>
+	<!-- Normal DNA bases -->
+	<monomer id="dna_A" name="A" sequence="dna"
+		formula="C10H13N5O3">
+		<loss name="b(A)" formula="C5H5N5" />
+	</monomer>
+	<monomer id="dna_G" name="G" sequence="dna"
+		formula="C10H13N5O4">
+		<loss name="b(G)" formula="C5H5N5O" />
+	</monomer>
+	<monomer id="dna_C" name="C" sequence="dna"
+		formula="C9H13N3O4">
+		<loss name="b(C)" formula="C4H5N3O" />
+	</monomer>
+	<monomer id="dna_T" name="T" sequence="dna"
+		formula="C10H14N2O5">
+		<loss name="b(T)" formula="C5H6N2O2" />
+	</monomer>
+	<!-- Normal RNA bases -->
+	<monomer id="rna_A" name="A" sequence="rna"
+		formula="C10H13N5O4">
+		<loss name="b(A)" formula="C5H5N5" />
+	</monomer>
+	<monomer id="rna_G" name="G" sequence="rna"
+		formula="C10H13N5O5">
+		<loss name="b(G)" formula="C5H5N5O" />
+	</monomer>
+	<monomer id="rna_C" name="C" sequence="rna"
+		formula="C9H13N3O5">
+		<loss name="b(C)" formula="C4H5N3O" />
+	</monomer>
+	<monomer id="rna_U" name="U" sequence="rna"
+		formula="C9H12N2O6">
+		<loss name="b(U)" formula="C4H4N2O2" />
+	</monomer>
+	<!-- Amino Acids -->
+	<monomer id="protein_A" name="A" sequence="protein"
+		formula="C3H7NO2">
+	</monomer>
+	<monomer id="protein_C" name="C" sequence="protein"
+		formula="C3H7NO2S">
+	</monomer>
+	<monomer id="protein_D" name="D" sequence="protein"
+		formula="C4H7NO4">
+	</monomer>
+	<monomer id="protein_E" name="E" sequence="protein"
+		formula="C5H9NO4">
+	</monomer>
+	<monomer id="protein_F" name="F" sequence="protein"
+		formula="C9H11NO2">
+	</monomer>
+	<monomer id="protein_G" name="G" sequence="protein"
+		formula="C2H5NO2">
+	</monomer>
+	<monomer id="protein_H" name="H" sequence="protein"
+		formula="C6H93O2">
+	</monomer>
+	<monomer id="protein_I" name="I" sequence="protein"
+		formula="C6H13NO2">
+	</monomer>
+	<monomer id="protein_K" name="K" sequence="protein"
+		formula="C6H14N2O2">
+	</monomer>
+	<monomer id="protein_L" name="L" sequence="protein"
+		formula="C6H13NO2">
+	</monomer>
+	<monomer id="protein_M" name="M" sequence="protein"
+		formula="C5H11NO2S">
+	</monomer>
+	<monomer id="protein_N" name="N" sequence="protein"
+		formula="C4H8N2O3">
+	</monomer>
+	<monomer id="protein_O" name="O" sequence="protein"
+		formula="C5H9NO3">
+	</monomer>
+	<monomer id="protein_P" name="P" sequence="protein"
+		formula="C5H9NO2">
+	</monomer>
+	<monomer id="protein_Q" name="Q" sequence="protein"
+		formula="C5H10N2O3">
+	</monomer>
+	<monomer id="protein_R" name="R" sequence="protein"
+		formula="C6H14N4O2">
+	</monomer>
+	<monomer id="protein_S" name="S" sequence="protein"
+		formula="C3H7NO3">
+	</monomer>
+	<monomer id="protein_T" name="T" sequence="protein"
+		formula="C4H9NO3">
+	</monomer>
+	<monomer id="protein_U" name="U" sequence="protein"
+		formula="C5H7NO3">
+	</monomer>
+	<monomer id="protein_V" name="V" sequence="protein"
+		formula="C5H11NO2">
+	</monomer>
+	<monomer id="protein_W" name="W" sequence="protein"
+		formula="C11H12N2O2">
+	</monomer>
+	<monomer id="protein_Y" name="Y" sequence="protein"
+		formula="C9H11NO3">
+	</monomer>
+</monomers>

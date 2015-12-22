@@ -1,0 +1,44 @@
+<atoms>
+	<!-- Source:
+		http://www.sisweb.com/referenc/source/exactmaa.htm
+	-->
+	<!-- Period 1 -->
+	<element symbol="H" name="Hydrogen" z="1" mass="1.008">
+		<isotope n="0" mass="1.007825" abundance="99.99" />
+		<isotope n="1" mass="2.014102" abundance="0.015" />
+	</element>
+	<element symbol="He" name="Helium" z="2" mass="4.003">
+		<isotope n="1" mass="3.016029" abundance=".0001" />
+		<isotope n="2" mass="4.002603" abundance="100.00" />
+	</element>
+	<!-- Period 2 -->
+	<element symbol="C" name="Carbon" z="6" mass="12.011">
+		<isotope n="6" mass="12.000000" abundance="98.90"/>
+		<isotope n="7" mass="13.003355" abundance="1.10 "/>
+	</element>
+	<element symbol="N" name="Nitrogen" z="7" mass="14.007">
+		<isotope n="7" mass="14.003074" abundance="99.63"/>
+		<isotope n="8" mass=" 15.000109" abundance="0.37"/>
+	</element>
+	<element symbol="O" name="Oxygen" z="8" mass="15.999">
+		<isotope n="8" mass="15.994915" abundance="99.76"/>
+		<isotope n="9" mass="16.999131" abundance="0.038"/>
+		<isotope n="10" mass="17.999159" abundance="0.20"/>
+	</element>
+	<!-- Period 3 -->
+	<element symbol="P" name="Phosphorus" z="15" mass="30.974">
+		<isotope n="16" mass="30.973763" abundance="100.00"/>
+	</element>
+	<element symbol="S" name="Sulfur" z="16" mass="32.065">
+		<isotope n="16" mass="31.972072" abundance="95.02"/>
+		<isotope n="17" mass="32.971459" abundance="0.75"/>
+		<isotope n="18" mass="33.967868" abundance="4.21"/>
+		<isotope n="20" mass="35.967079" abundance="0.020"/>
+	</element>
+	<!--
+	<element symbol="" name="" z="" mass="">
+		<isotope n="" mass="" abundance=""/>
+		<isotope n="" mass="" abundance="" />
+	</element>
+	-->
+</atoms>
