@@ -28,6 +28,7 @@ class Monomer(Compound, Losses):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        Losses.__init__(self)
         self.id = kwargs["id"]
         self.sequence = [x.strip() for x in kwargs["sequence"].split(",")]
         self.implicit = True if "implicit" in kwargs else False
