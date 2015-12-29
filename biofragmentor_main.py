@@ -1,3 +1,19 @@
+"""biofragmentor_main.py, the main structure for both CLI and GUI.
+
+This files containts all logic and common information needed for
+biofragmentor_cli.py, biofragmentor_gui.py as well as setup.py
+
+Attributes:
+    PATH_CONFIG (tuple), contains the path to the data directory for frozen and
+        unfrozen systems
+    APP_AUTHOR (str), contains the authors name
+    APP_NAME (str), name of this app
+    APP_DESC (str), description of this app
+    APP_VERSION (str), version of this app
+    APP_URL (str), homepage of this app
+    APP_LICENSE (str), license under which this app is published
+
+"""
 import sys
 import os
 
@@ -9,7 +25,7 @@ def get_data_path():
     else:
         return os.path.dirname(os.path.realpath(__file__))
 
-PATH_CONFIG = [get_data_path(), "data"]
+PATH_CONFIG = (get_data_path(), "data")
 
 APP_AUTHOR = "Basilius Sauter"
 APP_NAME = "BioFragmentor"

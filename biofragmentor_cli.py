@@ -1,3 +1,26 @@
+"""biofragmentor_cli.py, a command line interface to fragment biopolymers
+
+This File is the main entry point to biofragmentor and offers a command line
+interface (CLI) to the features of this package.
+
+Example:
+    Fragment a DNA oligomer consisting of the sequence 5'-TpApC-3'::
+
+        $ python biofragmentor_cli.py TAC --type=dna
+
+    Fragment a RNA oligomer consisting of the sequence 5'-UpApC-3'::
+
+        $ python biofragmentor_cli.py TAC --type=rna
+
+    Fragment a DNA oligomer consisting of the sequence 5'-pGpTpCpAp-3'::
+
+        $ python biofragmentor_cli.py pGTCAp --type=dna
+
+    Fragment a protein consisting of the sequence MALAG::
+
+        $ python biofragmentor_cli.py MALAG --type=protein
+
+"""
 # main libraries
 import sys
 import os
