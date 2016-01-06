@@ -2,3 +2,4 @@ include *.py
 recursive-include biofragmentor *.py
 
 recursive-include data *.xml
+recursive-include gui *.ui

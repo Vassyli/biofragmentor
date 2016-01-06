@@ -30,7 +30,7 @@ PATH_CONFIG = (get_data_path(), "data")
 APP_AUTHOR = "Basilius Sauter"
 APP_NAME = "BioFragmentor"
 APP_DESC = "BioFragmentor -- Biopolymer in silico fragmentation tool"
-APP_VERSION = "0.1.1"
+APP_VERSION = "0.2"
 
 APP_URL = "https://github.com/Vassyli/biofragmentor"
 APP_LICENSE = "GNU General Public License Version 3"

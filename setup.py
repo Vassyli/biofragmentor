@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, glob
 
 from cx_Freeze import setup, Executable
 
@@ -11,6 +11,11 @@ includefiles = [
     "README.md",
     "data",
     ]
+
+uifiles = glob.glob("gui/*.ui")
+for file in uifiles:
+    includefiles.append((file, file))
+
 packages = [
     "biofragmentor.sequence.dnasequence"]
 excludes = ["Tkinter"]
@@ -21,7 +26,11 @@ build_exe_options = {
     "packages" : packages,
     "include_files" : includefiles}
 
-base = None
+cli_base = None
+gui_base = None
+
+if sys.platform == "win32":
+    gui_base = "Win32GUI"
 
 setup(
     name = APP_NAME,
@@ -34,7 +43,7 @@ setup(
     options = {
         "build_exe" : build_exe_options},
     executables = [
-        Executable("biofragmentor_cli.py", base=None),
-        Executable("biofragmentor_gui.py", base=None)
+        Executable("biofragmentor_cli.py", base=cli_base),
+        Executable("biofragmentor_gui.py", base=gui_base)
     ]
 )
