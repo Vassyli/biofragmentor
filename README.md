@@ -9,8 +9,11 @@ Not possible right now. Run the main script from a console with "python biofragm
 
 ## Usage
 ### Windows executable
+
 > biofragmentor_cli.exe --help
+
 ### Python script
+
 > python biofragmentor_cli.py --help
 
 Displays an overview to all commands
@@ -112,3 +115,6 @@ $ biofragmentor_cli.exe --type=protein AGP --maxcharges=1 --mode=positive
 227.103183      M       AGP-NH3+H
 244.129732      M       AGP+H
 ```
+
+## Advanced Usage
+BioFragmentor can be used in combination with output redirection operators
